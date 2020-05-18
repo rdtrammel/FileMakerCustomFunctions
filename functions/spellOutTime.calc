@@ -1,0 +1,28 @@
+/* 
+INTENDED PURPOSE
+    To spell out time in human readable language. Useful for displaying duration data.
+    ex. "1h 14m", or "4h 10m 32s"
+
+PARAMETETRS
+    sec - Takes time in Seconds
+*/
+
+Let([
+
+   hr = Int ( sec / 60 / 60 );
+
+   mn = Int ( sec / 60 );
+
+   newMin = mn - ( hr * 60 );
+
+   newSec = sec - ( mn * 60 )
+
+];
+
+If ( hr > 0 ; hr & "h " ) &
+
+If ( newMin > 0 ; newMin & "m " ) & 
+
+If ( newSec > 0 ; newSec & "s" )
+
+)
